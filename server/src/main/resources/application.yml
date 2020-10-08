@@ -1,0 +1,27 @@
+server:
+  port: 9901
+
+mybatis:
+  # 所有的mapper映射文件
+  mapper-locations: classpath:mapper/*.xml
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://xielin002:a123456@192.168.0.4:9900/eureka/
+
+spring:
+  application:
+    name: server-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/rhs_cloud?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: a123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
