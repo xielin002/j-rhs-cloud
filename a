@@ -1,1 +1,2 @@
-aa
+#启动顺序
+eureka--》（server，web，）--》zuul
